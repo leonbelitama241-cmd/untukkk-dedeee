@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untukk Sayangggkuuu ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="hearts"></div>
+
+    <div class="card">
+        <h1>❤️ Untukk Dedee Aniss ❤️</h1>
+
+        <p class="subtitle">
+            Terimaa kasii sudahh menjadii bagiann terindahh dalamm hidupkuuu.
+        </p>
+
+        <div class="timer">
+            <h3>Kitaa Sudahh Bersamaa Selamaa</h3>
+            <p id="loveTimer"></p>
+        </div>
+
+        <button onclick="openLetter()">
+            💌 Bukaa Suratt Cintaa
+        </button>
+
+        <div class="letter" id="letter">
+            <h2>Untukk Sayangggkuuu</h2>
+            <p>
+                Terimaa kasihh karenaa selaluu adaa dii setiapp ceritaa hidupp kuu.
+                Kehadirann muu membuatt harii harii kuu lebihh berwarnaa dann penuhh kebahagiaann.
+                Akuu bersyukurr bisaa mengenall muu dann semogaa kitaa selaluu bersamaa,
+                melewatii semuaa sukaa dann dukaa bersamaa.
+                <br><br>
+                Akuu sayaaanggg kamuuu ❤️
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.getElementById("letter").classList.toggle("show");
+        }
+
+        // Ganti tanggal jadian di sini
+        const startDate = new Date("2025-02-08");
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+            document.getElementById("loveTimer").innerHTML =
+                `${days} Hari ${hours} Jam ${minutes} Menit`;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Hati jatuh
+        const heartsContainer = document.querySelector('.hearts');
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (3 + Math.random() * 4) + 's';
+
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
